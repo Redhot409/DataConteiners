@@ -251,7 +251,6 @@ public:
 		size++;
 
 	}
-
 	/////// Removing elements :  pop_front ///////
 
 	void pop_front()
