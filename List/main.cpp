@@ -2,7 +2,6 @@
 #include"List.cpp"
 
 
-
 //#define BASE_CHECK
 //#define ITERATORS_CHECK
 //#define OPERATOR_PLUS_CHECK
