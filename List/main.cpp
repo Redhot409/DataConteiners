@@ -4,7 +4,12 @@ using std::cout;
 using std::endl;
 
 #define tab "\t"
-#define delimiter "--------------------------"  
+#define delimiter "--------------------------" 
+
+
+//////////////////////////////////////////////////////////////////////////////////// 
+/////////         Class declaration (Объявление класса) :         ////////////////
+
 template <typename T> class List
 {
 	class Element
@@ -133,6 +138,12 @@ public:
 	void reverse_print()const;
 	
 };
+/////////         Class declaration end (Объявление класса конец) :         ////////////////
+     //////////////////////////////////////////////////////////////////////////////////// 
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////         Class definition (Определение класса) :         ////////////////
+
 /////////////////////////////////////////////////////////////////////////////////////
 //////////               Element Methods:              ////////////
 template<typename T> List<T>::Element::Element(T Data, Element* pNext, Element* pPrev)
@@ -457,6 +468,9 @@ template<typename T>List<T> operator+(const List<T>& left, const List<T>& right)
 	}
 	return buffer;
 }
+/////////         Class definition end (Конец Определения класса ) :         ////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
 
 //#define BASE_CHECK
 //#define ITERATORS_CHECK
