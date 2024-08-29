@@ -339,6 +339,34 @@ public:
 		}
 		size--;
 	}
+	void erase( int Index)
+	{
+		if (Index > size)return;
+		if (Index == 0)return pop_front();
+		if (Index == size)return pop_back();
+		Element* Temp;
+		if (Index < size / 2)
+		{
+			Temp = Head;
+			for (int i = 0; i < size - Index - 1; i++)Temp = Temp->pNext;//	'size - Index-1' количество переходов
+		}
+		else
+		{
+			Temp = Tail;
+			for (int i = 0; i < size - Index - 1; i++)Temp = Temp->pPrev;
+		}
+		/*Element* New = new Element(Data);
+		New->pNext=Temp;
+		New->pPrev = Temp->pPrev;
+		Temp->pPrev->pNext = New;
+		Temp->pPrev = New;*/
+		//Temp->pPrev = Temp->pPrev->pNext = new Element(Data, Temp, Temp->pPrev);
+		//Temp->pPrev = Temp->pPrev->pNext=New;
+		Temp->pNext->pPrev = Temp->pPrev;
+		Temp->pPrev->pNext = Temp->pNext;
+
+		size--;
+	}
 
 	////         Methods:    //////
 
@@ -368,7 +396,7 @@ List operator+(const List& left, const List& right)
 	return buffer;
 }
 
-//#define BASE_CHECK
+#define BASE_CHECK
 //#define ITERATORS_CHECK
 #define OPERATOR_PLUS_CHECK
 
@@ -394,6 +422,14 @@ void main()
 	cout << "Введите index добавляемого элемента: "; cin >> index;
 	cout << "Введите value добавляемого элемента: "; cin >> value;
 	list.insert(value, index);
+	list.print();
+	list.reverse_print();
+
+	int index1;
+	
+	cout << "Введите index удаляемого элемента: "; cin >> index1;
+	
+	list.erase(index1);
 	list.print();
 	list.reverse_print();
 #endif // BASE_CHECK
